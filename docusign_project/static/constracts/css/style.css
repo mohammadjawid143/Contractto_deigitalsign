@@ -1,0 +1,73 @@
+
+.header-middle {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.header-middle .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-menu {
+    display: flex;
+    align-items: center;
+}
+
+.shop-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.shop-menu ul li {
+    margin: 0 10px;
+}
+
+.shop-menu ul li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.shop-menu ul li a:hover {
+    color: #ff6347; /* Example hover color */
+}
+
+.nav-link {
+    color: rgb(255, 255, 255);
+}
+.nav-link:hover {
+    color: rgb(255, 42, 106);
+}
+
+.navbar-brand {
+    color: aliceblue;
+}
+.navbar-brand:hover {
+    color:rgb(255, 42, 106);
+}
+
+
+
+.padl {
+    padding-top: 90px;
+}
+
+/* Change the background color of the toggler */
+.navbar-toggler {
+    background-color: #898989; /* Set your desired color */
+    border: 1px solid #ffffff; /* Optional: match the border color */
+}
+
+/* Change the color of the icon inside the toggler */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+#navecol {
+    padding-left: 60px;
+    padding-right: 60px;
+}

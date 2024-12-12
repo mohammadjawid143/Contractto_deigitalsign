@@ -1,0 +1,59 @@
+{% extends 'share/layout.html' %}
+
+{% block title %}Create Contract{% endblock %}
+
+{% block content %}
+{% include "share/header.html" %}
+
+  <h2>Create Contract</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Contract</button>
+  </form>
+
+
+
+{% comment %} 
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Card for the form -->
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Create a New Contract</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <!-- Form Fields with Bootstrap Grid -->
+                        {% for field in form %}
+                        <div class="row mb-3 align-items-center">
+                            <label for="{{ field.id_for_label }}" class="col-md-4 col-form-label text-end">
+                                {{ field.label }}
+                            </label>
+                            <div class="col-md-8">
+                                {{ field }}
+                                {% if field.help_text %}
+                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-success btn-lg w-50">Send Contract</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+{% endblock %}

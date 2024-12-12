@@ -1,0 +1,31 @@
+{% extends 'share/layout.html' %}
+
+{%load static%}
+
+{% block title %}Digital Contracts{% endblock %}
+
+{% block content %}
+{%include "share/header.html" %}
+<div class="container mt-5">
+    <div class="jumbotron text-center bg-light">
+        <h1 class="display-4">Welcome to Digital Contracts</h1>
+        <p class="lead">A platform for creating, signing, and managing digital agreements seamlessly.</p>
+        <hr class="my-4">
+        <p>Get started by registering an account or logging in to manage your contracts.</p>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <h3>About the Project</h3>
+            <p>This project integrates Django with DocuSign API to provide users with a seamless way to create and sign digital contracts.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Features</h3>
+            <ul>
+                <li>User Registration Login</li>
+                <li>Create and Edit Contracts</li>
+                <li>Send Invitations to Sign Contracts</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

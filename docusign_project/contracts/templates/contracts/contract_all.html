@@ -1,0 +1,47 @@
+{% extends 'share/layout.html' %}
+
+{% block title %}Contracts{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Contracts</h2>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Creator</th>
+                <th>Full Name</th>
+                <th>Recipient Email</th>
+                <th>Contract Text</th>
+                <th>Created At</th>
+                <th>Actions</th>
+                <th>for sing</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for con in contract %}
+            <tr>
+                <td>{{ con.user.username }}</td>
+                <td>{{ con.full_name }}</td>
+                <td>{{ con.recipient_email }}</td>
+                <td>{{ con.contract_text|truncatechars:50 }}</td>
+                <td>{{ con.created_at }}</td>
+                <td>
+                    <!-- Delete Form -->
+                    <form method="POST" action="{% url 'contract_delete' contract_id=con.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <!-- Delete Form -->
+                    <form method="POST" action="{% url 'contract_detail' contract_id=con.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">sign</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

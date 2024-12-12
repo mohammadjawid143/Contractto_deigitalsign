@@ -1,0 +1,22 @@
+{% extends 'share/layout.html' %}
+
+{% block title %}Create Contract{% endblock %}
+
+{% block content %}
+<h2>Sign Contract</h2>
+<p>Contract Details:</p>
+<ul>
+    <li><strong>Name:</strong> {{ contract.full_name }}</li>
+    <li><strong>Email:</strong> {{ contract.recipient_email }}</li>
+    <li><strong>Text:</strong></li>
+    <p>{{ contract.contract_text }}</p>
+</ul>
+<form method="post" class="mt-4">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Sign Contract</button>
+</form>
+<p class="mt-3">
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+</p>
+
+{% endblock %}

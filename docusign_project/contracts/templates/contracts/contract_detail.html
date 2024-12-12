@@ -1,0 +1,63 @@
+{% extends 'share/layout.html' %}
+
+{% block title %}Create Contract{% endblock %}
+
+{% block content %}
+  <h2>Contract Detail</h2>
+  <p>Status: {{ contract.status }}</p>
+  <p>Recipient: {{ contract.full_name }} ({{ contract.recipient_email }})</p>
+  <p>Contract Text: {{ contract.contract_text }}</p>
+
+    <p><a href="{{ request_Contact_sign }}" target="_blank">Click here to sign the contract</a></p>
+{% endblock %}
+
+
+
+
+{% comment %} 
+{% block content %}
+{% include "share/header.html" %}
+<div class="container py-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h1 class="h3 mb-0">Contract Details</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title mb-3">{{ contract.full_name }}</h4>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">
+                    <strong>Recipient Email:</strong> {{ contract.recipient_email }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Created By:</strong> {{ contract.user.username }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Envelope ID:</strong> {{ contract.envelope_id }}
+                </li>
+            </ul>
+            <div class="mb-4">
+                <h5>Contract Text:</h5>
+                <pre class="bg-light p-3 border rounded">{{ contract.contract_text }}</pre>
+            </div>
+            <div class="mb-4">
+                <h5>Status:</h5>
+                <p class="mb-0">
+                    {% if contract.is_signed_by_creator and contract.is_signed_by_recipient %}
+                        <span class="badge bg-success">The contract is signed by both parties.</span>
+                    {% elif contract.is_signed_by_creator %}
+                        <span class="badge bg-warning">The creator has signed the contract. Awaiting recipient's signature.</span>
+                    {% elif contract.is_signed_by_recipient %}
+                        <span class="badge bg-warning">The recipient has signed the contract. Awaiting creator's signature.</span>
+                    {% else %}
+                        <span class="badge bg-danger">The contract is not signed yet.</span>
+                    {% endif %}
+                </p>
+            </div>
+            <div>
+                <h6 class="text-muted">Created At: {{ contract.created_at }}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%} {% endcomment %}
